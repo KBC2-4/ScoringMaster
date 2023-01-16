@@ -6,6 +6,8 @@ private:
 
 
 public:
+	Player();
+	~Player();
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
 };
 

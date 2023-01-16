@@ -7,5 +7,7 @@ private:
 
 public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
+	Result();
+	~Result();
 };
 

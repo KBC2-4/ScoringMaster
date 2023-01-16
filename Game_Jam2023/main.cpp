@@ -1,4 +1,5 @@
 #include "main.h"
+#include "PadInput.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
@@ -21,9 +22,36 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	while (ProcessMessage() == 0 && GameState != 99) {
+	enum class GAME_STATE
+	{
+		TITLE = 0,     //タイトル
+		GAME_INIT,          //初期処理
+		GAME_MAIN,          //メイン
+		GAME_RESULT,    //ゲームクリア描画
+	};
 
+	GAME_STATE GameState = GAME_STATE::TITLE;
 
+	while (ProcessMessage() == 0) {
+
+		switch (GameState)
+		{
+		case GAME_STATE::TITLE:
+			//GameTitle();                //ゲームタイトル処理           
+			break;
+
+		case GAME_STATE::GAME_INIT:
+			//Gameinit();                       //ゲーム初期処理
+			break;
+
+		case GAME_STATE::GAME_MAIN:
+			//GameMain();                       //ゲームメイン処理
+			break;
+
+		case GAME_STATE::GAME_RESULT:
+			//GameClear();                   //ゲームリザルト処理
+			break;
+		}
 
 		ClearDrawScreen();
 		PAD_INPUT::UpdateKey();	//パッドの入力状態の更新
