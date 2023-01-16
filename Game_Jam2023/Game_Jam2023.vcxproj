@@ -158,6 +158,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\PG\dxlib</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\PG\dxlib</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="PadInput.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="question.cpp" />
     <ClCompile Include="Result.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="PadInput.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="quoestion.h" />
     <ClInclude Include="Result.h" />

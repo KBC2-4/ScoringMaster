@@ -2,10 +2,20 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
-	SetMainWindowText("");
+	double dNextTime = GetNowCount();
+
+	SetMainWindowText("Game_Jam2023");
+	SetMainWindowClassName("Game_Jam2023");
 	ChangeWindowMode(TRUE);
 
+	SetOutApplicationLogValidFlag(FALSE);   //ログ出力を無効にする
+
 	ChangeFontType(DX_FONTTYPE_ANTIALIASING_4X4);
+
+	ChangeWindowMode(TRUE);		// ウィンドウモードで起動
+	SetGraphMode(1280, 720, 32);
+
+	SetAlwaysRunFlag(true);		//常にアクティブにする
 
 	if (DxLib_Init() == -1)return -1;
 
@@ -13,12 +23,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	while (ProcessMessage() == 0 && GameState != 99) {
 
-		g_OldKey = g_NowKey;
-		g_NowKey = GetJoypadInputState(DX_INPUT_PAD1);
-		g_KeyFlg = g_NowKey & ~g_OldKey;
+
 
 		ClearDrawScreen();
-
+		PAD_INPUT::UpdateKey();	//パッドの入力状態の更新
+		//フレームレートの設定
+		dNextTime += static_cast<double>(1.0 / 60.0 * 1000.0);
+		if (dNextTime > GetNowCount()) {
+			WaitTimer(static_cast<int>(dNextTime) - GetNowCount());
+		}
+		else { dNextTime = GetNowCount(); }		//補正
 
 		DrawBoxAA(50, 50, 600, 600, 0xFFFFFF, TRUE, 3.0f);
 
