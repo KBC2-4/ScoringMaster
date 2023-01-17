@@ -1,6 +1,8 @@
 #include "main.h"
 #include "PadInput.h"
 #include "Title.h"
+#include "GameMain.h"
+#include "Result.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
@@ -24,12 +26,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	Title* title;
-	title = new Title();
+	GameMain* gamemain;
+	Result* result;
+
+	title = nullptr;
+	gamemain = nullptr;
+	result = nullptr();
+
+	bool scene_change = false;
 
 	enum class GAME_STATE
 	{
 		TITLE = 0,     //タイトル
-		GAME_INIT,          //初期処理
 		GAME_MAIN,          //メイン
 		GAME_RESULT,    //ゲームクリア描画
 	};
@@ -43,20 +51,42 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (GameState)
 		{
 		case GAME_STATE::TITLE:
+			if (scene_change == false) { title = new Title(); scene_change = true; }
 			title->Update();
 			title->Draw();
+
+			if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+				delete title;
+				GameState = GAME_STATE::GAME_MAIN;
+				scene_change = false;
+			}
 			break;
 
-		case GAME_STATE::GAME_INIT:
-			//Gameinit();                       //ゲーム初期処理
-			break;
 
 		case GAME_STATE::GAME_MAIN:
-			//GameMain();                       //ゲームメイン処理
+			if (scene_change == false) { gamemain = new GameMain(); scene_change = true; }
+			gamemain->Update();
+			gamemain->Draw();
+
+			if (gamemain->GetClearFlg() == true) {
+				delete gamemain; 
+				GameState = GAME_STATE::GAME_RESULT; 
+				scene_change = false;
+			}
 			break;
 
 		case GAME_STATE::GAME_RESULT:
-			//GameClear();                   //ゲームリザルト処理
+			if (scene_change == false) { result = new Result(); scene_change = true; }
+			
+			result->Update();
+			result->Draw();
+			
+
+			if(result->GetNextScene() == true){ 
+				delete result; 
+				GameState = GAME_STATE::TITLE; 
+				scene_change = false;
+			}
 			break;
 		}
 			

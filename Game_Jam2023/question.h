@@ -1,8 +1,11 @@
 #pragma once
+#include <string>
+
 class Question
 {
 private:
 	//ƒNƒ‰ƒX“à‚Åg‚¤•Ï”
+
 
 		
 public:
