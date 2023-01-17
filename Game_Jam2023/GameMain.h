@@ -2,12 +2,14 @@
 class GameMain
 {
 private:
-
-	int title_font;
+	//フォントハンドル
+	int title_font, time_font, student_font;
 	//ゲームクリア時のフラグ
 	bool clear_flg;
 	//制限時間
 	int time_limit;
+	//ゲーム開始時のカウント
+	int start_count;
 
 public:
 	GameMain();
