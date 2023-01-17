@@ -29,9 +29,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameMain* gamemain;
 	Result* result;
 
-	title = new Title();
-	gamemain = new GameMain();
-	result = new Result();
+	title = nullptr;
+	gamemain = nullptr;
+	result = nullptr();
+
+	bool scene_change = false;
 
 	enum class GAME_STATE
 	{
@@ -49,33 +51,42 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (GameState)
 		{
 		case GAME_STATE::TITLE:
+			if (scene_change == false) { title = new Title(); scene_change = true; }
 			title->Update();
 			title->Draw();
+
 			if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+				delete title;
 				GameState = GAME_STATE::GAME_MAIN;
+				scene_change = false;
 			}
 			break;
 
 
 		case GAME_STATE::GAME_MAIN:
+			if (scene_change == false) { gamemain = new GameMain(); scene_change = true; }
 			gamemain->Update();
 			gamemain->Draw();
 
-			if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
-				GameState = GAME_STATE::GAME_RESULT;
+			if (gamemain->GetClearFlg() == true) {
+				delete gamemain; 
+				GameState = GAME_STATE::GAME_RESULT; 
+				scene_change = false;
 			}
-			//if (gamemain->GetClearFlg() == true) { GameState = GAME_STATE::GAME_RESULT; }
 			break;
 
 		case GAME_STATE::GAME_RESULT:
+			if (scene_change == false) { result = new Result(); scene_change = true; }
+			
 			result->Update();
 			result->Draw();
 			
-			if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
-				GameState = GAME_STATE::TITLE;
-			}
 
-			//if(result->GetNextScene() == true){ GameState = GAME_STATE::TITLE; }
+			if(result->GetNextScene() == true){ 
+				delete result; 
+				GameState = GAME_STATE::TITLE; 
+				scene_change = false;
+			}
 			break;
 		}
 			

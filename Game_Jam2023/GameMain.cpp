@@ -5,6 +5,7 @@ GameMain::GameMain() {
 	//Å‰‚ÉÀs‚³‚ê‚éŠÖ”
 	title_font = CreateFontToHandle("ƒƒCƒŠƒI", 120, 1);
 	clear_flg = false;
+
 }
 
 GameMain::~GameMain() {
