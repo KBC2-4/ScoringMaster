@@ -9,5 +9,7 @@ public:
 	Player();
 	~Player();
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
+	void Update();
+	void Draw();
 };
 

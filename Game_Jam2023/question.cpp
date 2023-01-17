@@ -8,3 +8,11 @@ Question::Question() {
 Question::~Question() {
 	//ç≈å„Ç…é¿çsÇ≥ÇÍÇÈä÷êî
 }
+
+void Question::Update()
+{
+}
+
+void Question::Draw()
+{
+}

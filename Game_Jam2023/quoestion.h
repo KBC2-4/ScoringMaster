@@ -9,5 +9,7 @@ public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
 	Question();
 	~Question();
+	void Update();
+	void Draw();
 };
 

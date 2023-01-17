@@ -5,5 +5,7 @@ private:
 public:
 	GameMain();
 	~GameMain();
+	void Update();
+	void Draw();
 };
 

@@ -7,3 +7,11 @@ Result::Result() {
 Result::~Result() {
 	//ÅŒã‚ÉÀs‚³‚ê‚éŠÖ”
 }
+
+void Result::Update()
+{
+}
+
+void Result::Draw()
+{
+}

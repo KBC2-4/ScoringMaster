@@ -9,5 +9,7 @@ public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
 	Result();
 	~Result();
+	void Update();
+	void Draw();
 };
 

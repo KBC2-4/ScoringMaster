@@ -7,3 +7,11 @@ GameMain::GameMain() {
 GameMain::~GameMain() {
 	//ÅŒã‚ÉÀs‚³‚ê‚éŠÖ”
 }
+
+void GameMain::Update()
+{
+}
+
+void GameMain::Draw()
+{
+}
