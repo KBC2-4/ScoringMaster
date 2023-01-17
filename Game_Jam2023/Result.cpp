@@ -14,4 +14,5 @@ void Result::Update()
 
 void Result::Draw()
 {
+	
 }
