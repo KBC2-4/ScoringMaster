@@ -1,4 +1,5 @@
 #include "quoestion.h"
+#include "DxLib.h"
 
 
 Question::Question() {
@@ -11,8 +12,10 @@ Question::~Question() {
 
 void Question::Update()
 {
+
 }
 
 void Question::Draw()
 {
+	
 }
