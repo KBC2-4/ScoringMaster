@@ -6,7 +6,7 @@ Title::Title() {
 
 	{
 		//タイトル画像の読込
-		if ((titleimg = LoadGraph("str_image.jpg")) == -1);
+		if ((titleimg = LoadGraph("Resource/Images/title.png")) == -1);
 
 	}
 	
@@ -42,7 +42,7 @@ void Title::Draw()
 
 	DrawGraph(0, 0, titleimg, FALSE);
 
-	DrawStringToHandle(400, 100, "タイトル", 0x000000, title_font);
+	//DrawStringToHandle(400, 100, "採点マスター", 0x000000, title_font);
 	DrawStringToHandle(400, 500, "スタート", 0x0000FF, btitle_font);
 	DrawStringToHandle(400, 550, "終了", 0x0000FF, btitle_font);
 	
