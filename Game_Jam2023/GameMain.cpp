@@ -8,6 +8,8 @@ GameMain::GameMain() {
 	time_font = CreateFontToHandle("メイリオ", 40, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 	student_font = LoadFontDataToHandle("Resource/Fonts/Student.dft", 1);
 
+	if ((background_image = LoadGraph("Resource/Images/gamemain.png")) == -1);
+
 	clear_flg = false;
 
 	time_limit = 0;
@@ -75,6 +77,8 @@ void GameMain::Update()
 
 void GameMain::Draw()
 {
+
+	DrawGraph(0, 0, background_image, FALSE);
 
 	{//キャンバス
 		int canvas_x1;
