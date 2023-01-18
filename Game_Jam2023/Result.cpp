@@ -21,5 +21,5 @@ void Result::Update()
 
 void Result::Draw()
 {
-	DrawStringToHandle(400, 300, "ƒŠƒUƒ‹ƒg", 0xFF5F0F, title_font);
+	
 }
