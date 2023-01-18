@@ -1,4 +1,4 @@
-#include "quoestion.h"
+#include "question.h"
 #include "DxLib.h"
 
 
