@@ -10,12 +10,22 @@ private:
 	int time_limit;
 	//ゲーム開始時のカウント
 	int start_count;
+	//アニメーション用カウント
+	int anim_count;
+	int size_anim_count;
+
+	bool next_question;
+
+
+	short question_num;
 
 public:
 	GameMain();
 	~GameMain();
 	void Update();
 	void Draw();
+
+	void slide_animation(bool end);
 
 	bool GetClearFlg(void) const { return clear_flg; }
 };
