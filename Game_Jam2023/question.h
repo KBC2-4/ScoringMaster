@@ -19,7 +19,7 @@ private:
 		"‹ãB’n•û‚É‚ ‚éŒ§‚Í\n‘S•”‚Å‚¢‚­‚Â‚©“š‚¦‚È‚³‚¢",
 		"‰”•M‚ÆÁ‚µƒSƒ€‚Í‡‚í‚¹‚Ä‚P‚P‚O‰~‚Å\n‰”•M‚ÍÁ‚µƒSƒ€‚æ‚è‚P‚O‚O‰~‚‚¢B\nÁ‚µƒSƒ€‚Ì’l’i‚ð“š‚¦‚È‚³‚¢",
 		"“s“¹•{Œ§‚Ì“s“¹•{‚Í\n‚¢‚­‚Â‚ ‚é‚©“š‚¦‚È‚³‚¢",
-		"‚P~‚P‚O‚Ü‚Å‚ÌŠï”‚ð‘«‚µ‚½”‚ð\n“š‚¦‚È‚³‚¢",
+		"‚P`‚P‚O‚Ü‚Å‚ÌŠï”‚ð‘«‚µ‚½”‚ð\n“š‚¦‚È‚³‚¢",
 		"ƒoƒX‚É‚Wlæ‚Á‚Ä‚¢‚Ü‚·B \n‚»‚Ì‚¤‚¿‚Rl‚ª~‚è‚Ü‚µ‚½B\nƒoƒX‚Ì‹q‚Í‰½l‚©“š‚¦‚È‚³‚¢",
 		"‚ ‚È‚½‚Í‚Q‚O‚O‰~Ž‚Á‚Ä‚¢‚Ü‚·B\n‚P‚O‚O‰~‚Ì‚à‚Ì‚ð”ƒ‚¤‚Æ‚¨‚Â‚è‚Í\n‚¢‚­‚ç‚É‚È‚é‚©“š‚¦‚È‚³‚¢",
 		"tA‰ÄAHA“~Aˆê”N‚Ì’†‚Å\nˆê”Ô’·‚¢‚Ì‚Í‚Ç‚ê‚©“š‚¦‚È‚³‚¢"

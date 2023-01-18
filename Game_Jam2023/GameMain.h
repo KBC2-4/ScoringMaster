@@ -10,6 +10,8 @@ private:
 	int student_font;
 	int question_font;
 
+	int background_image;
+
 	//ゲームクリア時のフラグ
 	bool clear_flg;
 	//制限時間
