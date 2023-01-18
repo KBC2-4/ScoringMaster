@@ -4,6 +4,7 @@
 GameMain::GameMain() {
 	//Å‰‚ÉŽÀs‚³‚ê‚éŠÖ”
 	title_font = CreateFontToHandle("ƒƒCƒŠƒI", 120, 1);
+	question_font = CreateFontToHandle("‚l‚r ‚oƒSƒVƒbƒN", 60, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 	time_font = CreateFontToHandle("ƒƒCƒŠƒI", 40, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 	student_font = LoadFontDataToHandle("Resource/Fonts/Student.dft", 1);
 
@@ -19,12 +20,17 @@ GameMain::GameMain() {
 	next_question = false;
 	question_num = 0;
 
+	answer_correct = GetRand(1);
+
+	question = new Question();
 }
 
 GameMain::~GameMain() {
 	DeleteFontToHandle(title_font);
 	DeleteFontToHandle(time_font);
+	DeleteFontToHandle(question_font);
 	DeleteFontToHandle(student_font);
+	delete question;
 	//ÅŒã‚ÉŽÀs‚³‚ê‚éŠÖ”
 }
 
@@ -37,7 +43,7 @@ void GameMain::Update()
 	if (time_limit > 0) { clear_flg = true; }
 
 	//3–åƒNƒŠƒA‚µ‚½Žž
-	if (question_num > 3) {
+	if (question_num > 15) {
 		clear_flg = true;
 	}
 
@@ -62,7 +68,6 @@ void GameMain::Update()
 		if ((PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON)
 			|| PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 			next_question = true;
-			++question_num;
 		}
 	}
 
@@ -82,17 +87,22 @@ void GameMain::Draw()
 		canvas_y1 = 150 - size_anim_count * speed;
 		canvas_x2 = 820 + size_anim_count * speed + anim_count * 15;
 		canvas_y2 = 650 + size_anim_count * speed;
-
+		//ƒLƒƒƒ“ƒoƒX •`‰æ
 		DrawBoxAA(canvas_x1, canvas_y1, canvas_x2, canvas_y2, 0xFFFFFF, TRUE);
 
-		DrawExtendStringToHandle(canvas_x1 + 200 + size_anim_count * 5, 570, size_anim_count * 0.01 + 1.0, size_anim_count * 0.01 + 1.0, "D“cM’·", 0xFFFFFF, student_font, 0x00FFFF);
+
+		DrawExtendFormatString2ToHandle(canvas_x1 + 320, canvas_y1 + 260, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, 0xFF0000, 0xFFFFFF, title_font, "%d–â–Ú", question_num + 1);
+
+		//–â‘è •`‰æ
+		DrawExtendFormatString2ToHandle(canvas_x1 - 200 + GetDrawCenterX(question->GetQuestion(question_num).c_str(), question_font), canvas_y1 + 400, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4,  0xFFFFFF, 0x000000, question_font, "%s", question->GetQuestion(question_num).c_str());
+
+		//¶“k‚Ì‰ð“š •`‰æ
+		DrawExtendFormatString2ToHandle(canvas_x1 + 200 + size_anim_count * 5, 570, size_anim_count * 0.01 + 1.0, size_anim_count * 0.01 + 1.0, 0xFFFFFF, 0x00FFFF, student_font, "%s", question->GetAnswer(question_num, answer_correct).c_str());
 	}
 
 
 	{//HUD
-		DrawStringToHandle(320, 300, "ƒQ[ƒ€ƒƒCƒ“", 0xFF5F0F, title_font);
 		DrawFormatString2ToHandle(1000, 50, 0xFF0000, 0xFFFFFF, time_font, "%5d.%.3d", -time_limit / 1000, -time_limit % 1000);
-		DrawFormatString2ToHandle(80, 50, 0xFF0000, 0xFFFFFF, time_font, "%d–â–Ú", question_num + 1);
 	}
 }
 
@@ -101,13 +111,38 @@ void GameMain::slide_animation(bool end)
 	if (!end) {
 		if (anim_count >= 0) {
 			anim_count--;
-
 		}
 	}
 	else {
 		if (anim_count > -90) {
 			anim_count--;
-			if (anim_count == -90) { anim_count = 60; next_question = false; }
+			if (anim_count == -90) {
+				anim_count = 60;
+				next_question = false; 
+				//–â‘è‚ðØ‚è‘Ö‚¦
+				++question_num;
+				//¶“k‚Ì³Œë‚ð—”‚Åƒ‰ƒ“ƒ_ƒ€‚ÅŽæ“¾
+				answer_correct = GetRand(1);
+			}
 		}
 	}
+}
+
+
+int GameMain::GetDrawCenterX(const char* string, int font_handle, int margin)const {
+
+	//‰æ–Ê•
+	const int screenX = 1280;
+
+	if (margin >= screenX || margin <= -screenX) {
+		margin = 0;
+	}
+
+	if (font_handle == 0) {
+		font_handle = DX_DEFAULT_FONT_HANDLE;
+	}
+
+
+	const int w = screenX / 2 + margin - (GetDrawFormatStringWidthToHandle(font_handle, string) / 2);
+	return w;
 }
