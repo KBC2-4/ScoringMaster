@@ -10,6 +10,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetMainWindowText("採点マスター");
 	SetMainWindowClassName("ScoringMaster");
+
+	SetWindowIconID(01);
 	ChangeWindowMode(TRUE);
 
 	SetOutApplicationLogValidFlag(FALSE);   //ログ出力を無効にする
