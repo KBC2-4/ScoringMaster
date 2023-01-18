@@ -4,6 +4,11 @@ class Title
 private:
 //ƒNƒ‰ƒX“à‚Åg‚¤•Ï”
 	int title_font;
+	int btitle_font;
+	int menu;
+	int menunumber = 0;
+	int titleimg;
+	int input_margin;
 
 
 public:
