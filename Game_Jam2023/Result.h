@@ -19,6 +19,7 @@ private:
 	};
 	Rank rank;
 
+	int enter_se;
 
 public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
