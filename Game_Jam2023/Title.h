@@ -12,6 +12,7 @@ private:
 
 	int select_se;
 	int enter_se;
+	int background_music;
 
 
 public:
