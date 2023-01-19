@@ -17,7 +17,7 @@ GameMain::GameMain() {
 
 	time_limit = 0;
 
-	start_count = GetNowCount() + 1000 * 60;
+	start_count = GetNowCount() + 1000 * 100;
 
 	anim_count = 60;
 	size_anim_count = 0;
@@ -52,9 +52,12 @@ GameMain::~GameMain() {
 void GameMain::Update()
 {
 	next_question_num = question_count;
+
 	//デバッグ
 	//問題確認用
-	if (GetNowCount() % 30 == 0) {
+	if (count < 20) { count++; }
+	if (count == 20) {
+		count = 0;
 		if (CheckHitKey(KEY_INPUT_RIGHT)) { question_count++; }
 		if (CheckHitKey(KEY_INPUT_LEFT)) { if (question_count > 0) { question_count--; } }
 	}
@@ -161,7 +164,6 @@ void GameMain::Draw()
 		/*case GameMain::Answer::unanswered:
 			break;*/
 	case GameMain::Answer::wrong:
-		DrawString(200, 500, "不正解", 0xFFFFFF);
 
 		{//キャンバス
 			float canvas_x1 = x;
@@ -179,7 +181,6 @@ void GameMain::Draw()
 		}
 		break;
 	case GameMain::Answer::correct:
-		DrawString(200, 500, "正解", 0xFFFFFF);
 		DrawCircleAA(x, y, 200, 30, 0xd2672f, FALSE, 50.0F);
 		DrawStringToHandle(1000, 80, "+ 1.000", 0xFFFFFF,time_font);
 		break;
