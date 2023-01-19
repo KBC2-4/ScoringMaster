@@ -17,7 +17,9 @@ private:
 	int paper_image;
 
 	//サウンドハンドル
-	int ok_se;
+	int correct_se;
+	int wrong_se;
+	int background_music;
 
 	//ゲームクリア時のフラグ
 	bool clear_flg;
@@ -62,7 +64,7 @@ private:
 	Question* question;
 
 	//デバッグ 
-	int count;
+	//int count;
 
 public:
 	GameMain();
