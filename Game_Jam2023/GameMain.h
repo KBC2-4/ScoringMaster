@@ -8,12 +8,16 @@ private:
 	//フォントハンドル
 	int title_font;
 	int time_font;
+	int student_dis_font;
 	int student_font;
 	int question_font;
 
 	//イメージハンドル
 	int background_image;
 	int paper_image;
+
+	//サウンドハンドル
+	int ok_se;
 
 	//ゲームクリア時のフラグ
 	bool clear_flg;

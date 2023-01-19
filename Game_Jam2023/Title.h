@@ -10,6 +10,9 @@ private:
 	int titleimg;
 	int input_margin;
 
+	int select_se;
+	int enter_se;
+
 
 public:
 //ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
