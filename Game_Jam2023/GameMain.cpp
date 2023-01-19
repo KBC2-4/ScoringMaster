@@ -1,7 +1,7 @@
 #include "GameMain.h"
 #include "PadInput.h"
 
-#define QUESTION_NUM 15
+#define QUESTION_NUM 32
 
 GameMain::GameMain() {
 	//Å‰‚ÉÀs‚³‚ê‚éŠÖ”
