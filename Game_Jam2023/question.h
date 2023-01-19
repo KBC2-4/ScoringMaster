@@ -46,7 +46,7 @@ private:
 	//"‚XˆÊ‚Å‘–‚Á‚Ä‚¢‚éƒ}ƒ‰ƒ\ƒ“‘IŽè‚ª\n ‚W,‚V,‚UˆÊ‚ð‚Ü‚Æ‚ß‚Ä”²‚«‚Ü‚µ‚½B\n@@Œ»Ý‚Ì‡ˆÊ‚ð“š‚¦‚È‚³‚¢"
 	std::vector<std::vector<std::string>> answer = {
 		{ "‹à—j“ú", "‚XŽž@", "‚P‚PŒÂ", "‚P‚W‰æ", "‚Q‚TŽü", "‚Ä‚ñ‚Ñ‚ñÀ", "‚Q‚S”t", "‚P‚OŽí—Þ",
-		"‚W‚Â", "‚T‰~", "‚S‚Â", "‚Q‚T", "‚Sl", "‚O‰~", "ˆê”N","‚UˆÊ","‚P‚V”Ô–Ú","…—j“ú","T@@",
+		"‚W‚Â@", "‚T‰~@", "‚S‚Â@", "‚Q‚T@", "‚Sl@", "‚O‰~@", "ˆê”N@","‚UˆÊ@","‚P‚V”Ô–Ú","…—j“ú","T@@",
 		"ÂXŒ§","—c’t‰€","‚P‚SŽž","‚S‚O•ª","‚P‚Q@","‚P‘©@","“ú–{Œê","‚¢‚È‚¢","ƒlƒbƒNƒŒƒX","‚WŒÂ@",
 		"‚Q‚Q‰æ","‚R‚O@","‚P‚QŽü”¼","‚Q‚O‰æ","ŒŽ—j“ú"},
 		
