@@ -97,11 +97,11 @@ void GameMain::Update()
 
 	if (next_question == false) {
 
-		if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 			if (answer_correct == 0) { answer = GameMain::Answer::wrong; }
 			else { answer = GameMain::Answer::correct; }
 		}
-		else if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		else if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 			if (answer_correct == 1) { answer = GameMain::Answer::wrong; }
 			else { answer = GameMain::Answer::correct; }
 		}
@@ -208,7 +208,7 @@ void GameMain::Draw()
 
 	{//HUD
 		DrawFormatString2ToHandle(1000, 50, 0xFF0000, 0xFFFFFF, time_font, "%5d.%.3d", -time_limit / 1000, -time_limit % 1000);
-		DrawFormatString2ToHandle(50, 50, 0xFF0000, 0xFFFFFF, time_font, "ê≥âêîÅF%2d", clear_count);
+		DrawFormatString2ToHandle(50, 50, 0xFFFF00, 0x000000, time_font, "ê≥âêîÅF%2d", clear_count);
 		DrawStringToHandle(600 + 150, 655, "Å~", 0xFFFFFF, question_font, 0x000000);
 		DrawCircleAA(600 + 123, 685, 30, 20, 0x5AFF19, 1);
 		DrawStringToHandle(600 + 103	, 654, "A",  0x16F002, question_font, 0x000000);
