@@ -86,11 +86,11 @@ void GameMain::Update()
 
 	if (next_question == false) {
 
-		if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 			if (answer_correct == 0) { answer = GameMain::Answer::wrong; }
 			else { answer = GameMain::Answer::correct; }
 		}
-		else if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		else if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 			if (answer_correct == 1) { answer = GameMain::Answer::wrong; }
 			else { answer = GameMain::Answer::correct; }
 		}
