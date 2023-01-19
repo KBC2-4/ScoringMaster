@@ -4,6 +4,8 @@ class Result
 private:
 	//ƒNƒ‰ƒX“à‚Åg‚¤•Ï”
 	int title_font;
+	int bottun_font;
+	
 	bool nextscene;
 	short clear_count;
 
