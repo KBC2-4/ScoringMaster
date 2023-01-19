@@ -14,6 +14,10 @@ GameMain::GameMain() {
 	if ((background_image = LoadGraph("Resource/Images/gamemain.png")) == -1);
 	if ((paper_image = LoadGraph("Resource/Images/paper.png")) == -1);
 
+	wrong_se = LoadSoundMem("Resource/Sounds/wrong.mp3");
+	correct_se = LoadSoundMem("Resource/Sounds/correct.mp3");
+	background_music = LoadSoundMem("Resource/Sounds/bgm.mp3");
+
 	clear_flg = false;
 
 	time_limit = 0;
@@ -37,6 +41,8 @@ GameMain::GameMain() {
 
 	//解答を未回答に初期化
 	answer = GameMain::Answer::unanswered;
+
+	PlaySoundMem(background_music, DX_PLAYTYPE_LOOP, TRUE);
 }
 
 GameMain::~GameMain() {
@@ -47,22 +53,25 @@ GameMain::~GameMain() {
 	DeleteFontToHandle(student_dis_font);
 	DeleteGraph(background_image);
 	DeleteGraph(paper_image);
+	DeleteSoundMem(wrong_se);
+	DeleteSoundMem(correct_se);
+	StopSoundMem(background_music);
+	DeleteSoundMem(background_music);
 	delete question;
 	//最後に実行される関数
 }
 
 void GameMain::Update()
 {
-	next_question_num = question_count;
 
-	//デバッグ
-	//問題確認用
-	if (count < 20) { count++; }
-	if (count == 20) {
-		count = 0;
-		if (CheckHitKey(KEY_INPUT_RIGHT)) { question_count++; }
-		if (CheckHitKey(KEY_INPUT_LEFT)) { if (question_count > 0) { question_count--; } }
-	}
+	////デバッグ
+	////問題確認用
+	//if (count < 20) { count++; }
+	//if (count == 20) {
+	//	count = 0;
+	//	if (CheckHitKey(KEY_INPUT_RIGHT)) { question_count++; }
+	//	if (CheckHitKey(KEY_INPUT_LEFT)) { if (question_count > 0) { question_count--; } }
+	//}
 
 	//制限時間の経過
 	time_limit = GetNowCount() - start_count;
@@ -101,9 +110,14 @@ void GameMain::Update()
 		//不正解だった場合、制限時間を減算させる
 		if (answer == GameMain::Answer::wrong) {
 			start_count -= 1000 * 5;
+			PlaySoundMem(wrong_se, DX_PLAYTYPE_BACK, TRUE);
 		}
 		//正解だった場合、clear_countを加算する
-		else if (answer == GameMain::Answer::correct) { start_count += 1000 * 1; clear_count++; }
+		else if (answer == GameMain::Answer::correct) { 
+			start_count += 1000 * 1;
+			clear_count++; 
+			PlaySoundMem(correct_se, DX_PLAYTYPE_BACK, TRUE);
+		}
 
 		//BボタンまたはAボタンを押した時
 		if ((PAD_INPUT::GetNowKey() == XINPUT_BUTTON_A && PAD_INPUT::GetPadState() == PAD_STATE::ON)
