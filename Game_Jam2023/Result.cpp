@@ -4,7 +4,8 @@
 Result::Result(short clear_count) {
 	//最初に実行される関数
 
-	enter_se = LoadSoundMem("Resource/Sounds/select.mp3");
+	enter_se = LoadSoundMem("Resource/Sounds/enter.mp3");
+	result_bgm = LoadSoundMem("Resource/Sounds/result.mp3");
 	
 	title_font = CreateFontToHandle("メイリオ", 120, 1);
 	bottun_font = CreateFontToHandle("メイリオ", 30, 1);
@@ -38,13 +39,17 @@ Result::Result(short clear_count) {
 	else if (clear_count >= 0) {
 		rank = Rank::E;
 	}
+
+	PlaySoundMem(result_bgm, DX_PLAYTYPE_LOOP, TRUE);
 }
 
 Result::~Result() {
 	//最後に実行される関数
 	DeleteFontToHandle(title_font);
-
-	DeleteGraph(background_image);
+	DeleteSoundMem(enter_se);
+	DeleteFontToHandle(bottun_font);
+	StopSoundMem(result_bgm);
+	DeleteSoundMem(result_bgm);
 }
 
 void Result::Update()

@@ -209,13 +209,13 @@ void GameMain::Draw()
 	{//HUD
 		DrawFormatString2ToHandle(1000, 50, 0xFF0000, 0xFFFFFF, time_font, "%5d.%.3d", -time_limit / 1000, -time_limit % 1000);
 		DrawFormatString2ToHandle(50, 50, 0xFF0000, 0xFFFFFF, time_font, "ê≥âêîÅF%2d", clear_count);
-		DrawStringToHandle(600 - 10, 668, "Å~", 0xFFFFFF, question_font, 0x000000);
-		DrawCircleAA(600 - 30, 680, 15, 20, 0xFFFFFF, 1);
-		DrawStringToHandle(600 - 37	, 668, "A",  0x16F002, question_font, 0xFFFFFF);
+		DrawStringToHandle(600 + 150, 655, "Å~", 0xFFFFFF, question_font, 0x000000);
+		DrawCircleAA(600 + 123, 685, 30, 20, 0x5AFF19, 1);
+		DrawStringToHandle(600 + 103	, 654, "A",  0x16F002, question_font, 0x000000);
 
-		DrawStringToHandle(700 - 190, 668, "Åõ", 0xFFFFFF, question_font, 0x000000);
-		DrawCircleAA(700 - 210, 680, 15, 20, 0xFFFFFF, 1);
-		DrawStringToHandle(700 - 217, 668, "B", 0xEB7415, question_font, 0xFFFFFF);
+		DrawStringToHandle(700 - 160, 655, "Åõ", 0xFFFFFF, question_font, 0x000000);
+		DrawCircleAA(700 - 199, 685, 30, 20, 0xff0000, 1);
+		DrawStringToHandle(700 - 217, 654, "B", 0xEB7415, question_font, 0x000000);
 	}
 }
 
