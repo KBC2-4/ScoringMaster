@@ -17,7 +17,7 @@ GameMain::GameMain() {
 
 	time_limit = 0;
 
-	start_count = GetNowCount() + 1000 * 60;
+	start_count = GetNowCount() + 1000 * 100;
 
 	anim_count = 60;
 	size_anim_count = 0;
