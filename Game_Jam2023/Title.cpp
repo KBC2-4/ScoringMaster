@@ -5,6 +5,9 @@
 Title::Title() {
 
 	{
+		select_se = LoadSoundMem("Resource/Sounds/select.mp3");
+		enter_se = LoadSoundMem("Resource/Sounds/enter.mp3");
+
 		//É^ÉCÉgÉãâÊëúÇÃì«çû
 		if ((titleimg = LoadGraph("Resource/Images/title.png")) == -1);
 
@@ -23,15 +26,20 @@ Title::~Title() {
 
 void Title::Update()
 {
+	if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		PlaySoundMem(enter_se, DX_PLAYTYPE_BACK, TRUE);
+	}
 
 	if (input_margin <= 20) { ++input_margin; }
 
 	if (PAD_INPUT::GetPadThumbLY() < -2000 && input_margin >= 20) {
+		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (++menunumber > 1) menunumber = 0;
 		input_margin = 0;
 	}
 
 	if (PAD_INPUT::GetPadThumbLY() > 2000 && input_margin >= 20) {
+		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (--menunumber < 0) menunumber = 1;
 		input_margin = 0;
 	}
