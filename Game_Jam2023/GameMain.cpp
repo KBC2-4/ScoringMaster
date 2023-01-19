@@ -161,7 +161,6 @@ void GameMain::Draw()
 		/*case GameMain::Answer::unanswered:
 			break;*/
 	case GameMain::Answer::wrong:
-		DrawString(200, 500, "不正解", 0xFFFFFF);
 
 		{//キャンバス
 			float canvas_x1 = x;
@@ -179,7 +178,6 @@ void GameMain::Draw()
 		}
 		break;
 	case GameMain::Answer::correct:
-		DrawString(200, 500, "正解", 0xFFFFFF);
 		DrawCircleAA(x, y, 200, 30, 0xd2672f, FALSE, 50.0F);
 		DrawStringToHandle(1000, 80, "+ 1.000", 0xFFFFFF,time_font);
 		break;
