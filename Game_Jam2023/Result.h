@@ -6,6 +6,8 @@ private:
 	int title_font;
 	int bottun_font;
 	int rank_font;
+	int guid_font;
+
 	int gcrown_img;
 	int scrown_img;
 	int bcrown_img;

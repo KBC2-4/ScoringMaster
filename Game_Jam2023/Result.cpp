@@ -9,7 +9,8 @@ Result::Result(short clear_count) {
 	
 	title_font = CreateFontToHandle("メイリオ", 120, 1);
 	bottun_font = CreateFontToHandle("メイリオ", 30, 1);
-	rank_font = CreateFontToHandle("メイリオ", 60, 10);
+	rank_font = CreateFontToHandle("メイリオ", 200, 10);
+	guid_font= CreateFontToHandle("ＭＳ Ｐゴシック", 60, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	gcrown_img = LoadGraph("Resource/Images/gold.png");
 	scrown_img = LoadGraph("Resource/Images/silver.png");
@@ -65,36 +66,41 @@ void Result::Draw()
 
 	DrawGraph(0, 0, background_image, FALSE);
 
-
-	DrawBox(290, 400, 990, 700, 0xFFFFFF, FALSE);
-	DrawBox(560, 230, 720, 360, 0xFFFFFF, FALSE);
 	DrawFormatString2ToHandle(400, 500, 0xFFFFFF, 0x000000, title_font, "%2d問正解", clear_count);
-	DrawStringToHandle(300, 600, "Bボタンでタイトルへ戻る", 0xFF0000, bottun_font);
+	//DrawStringToHandle(300, 600, "Bボタンでタイトルへ戻る", 0xFF0000, bottun_font);
+
+	int button_x = 670;
+	DrawStringToHandle(button_x - 160, 655, "タイトルへ戻る", 0xFFFFFF, guid_font, 0x000000);
+	DrawCircleAA(button_x - 199, 685, 30, 20, 0xff0000, 1);
+	DrawStringToHandle(button_x - 217, 654, "B", 0xEB7415, guid_font, 0x000000);
+
+	int rank_x = 575;
+	int rank_y = 270;
 
 	switch (rank)
 	{
 	case Result::Rank::S:
-		DrawStringToHandle(615, 325, "S", 0xe1bb2b, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "S", 0xe1bb2b, rank_font);
 		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	case Result::Rank::A:
-		DrawStringToHandle(615, 325, "A", 0xc7c9cb, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "A", 0xc7c9cb, rank_font);
 		DrawGraph(490, 40, scrown_img, TRUE);
 		break;
 	case Result::Rank::B:
-		DrawStringToHandle(615, 325, "B", 0xc4b790, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "B", 0xc4b790, rank_font);
 		DrawGraph(490, 40, bcrown_img, TRUE);
 		break;
 	case Result::Rank::C:
-		DrawStringToHandle(615, 325, "C", 0x00FF00, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "C", 0x00FF00, rank_font);
 		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	case Result::Rank::D:
-		DrawStringToHandle(615, 325, "D", 0xff0000, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "D", 0xff0000, rank_font);
 		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	case Result::Rank::E:
-		DrawStringToHandle(615, 325, "E", 0xC0C0C0, rank_font);
+		DrawStringToHandle(rank_x, rank_y, "E", 0xC0C0C0, rank_font);
 		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	default:
