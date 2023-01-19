@@ -16,6 +16,9 @@ private:
 	int background_image;
 	int paper_image;
 
+	//サウンドハンドル
+	int ok_se;
+
 	//ゲームクリア時のフラグ
 	bool clear_flg;
 	//制限時間
