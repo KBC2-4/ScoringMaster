@@ -8,8 +8,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	double dNextTime = GetNowCount();
 
-	SetMainWindowText("Game_Jam2023");
-	SetMainWindowClassName("Game_Jam2023");
+	SetMainWindowText("採点マスター");
+	SetMainWindowClassName("ScoringMaster");
+
+	SetWindowIconID(01);
 	ChangeWindowMode(TRUE);
 
 	SetOutApplicationLogValidFlag(FALSE);   //ログ出力を無効にする
