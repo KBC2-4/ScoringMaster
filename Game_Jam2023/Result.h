@@ -20,6 +20,7 @@ private:
 	Rank rank;
 
 	int enter_se;
+	int result_bgm;
 
 public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
