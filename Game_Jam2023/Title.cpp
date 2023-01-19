@@ -18,7 +18,8 @@ Title::Title() {
 	btitle_font = CreateFontToHandle("ÉÅÉCÉäÉI", 40, 20,DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	input_margin = 0;
-
+	menunumber = 0;
+	next_scene = NextScene::NONE;
 	PlaySoundMem(background_music, DX_PLAYTYPE_LOOP, TRUE);
 }
 
@@ -37,6 +38,8 @@ void Title::Update()
 	if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
 		PlaySoundMem(enter_se, DX_PLAYTYPE_BACK, TRUE);
 	}
+
+	next_scene = static_cast<NextScene>(menunumber + 1);
 
 	if (input_margin <= 20) { ++input_margin; }
 
