@@ -52,9 +52,12 @@ GameMain::~GameMain() {
 void GameMain::Update()
 {
 	next_question_num = question_count;
+
 	//デバッグ
 	//問題確認用
-	if (GetNowCount() % 30 == 0) {
+	if (count < 20) { count++; }
+	if (count == 20) {
+		count = 0;
 		if (CheckHitKey(KEY_INPUT_RIGHT)) { question_count++; }
 		if (CheckHitKey(KEY_INPUT_LEFT)) { if (question_count > 0) { question_count--; } }
 	}

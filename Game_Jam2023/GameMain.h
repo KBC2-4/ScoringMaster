@@ -57,6 +57,9 @@ private:
 	//オブジェクト変数
 	Question* question;
 
+	//デバッグ 
+	int count;
+
 public:
 	GameMain();
 	~GameMain();
