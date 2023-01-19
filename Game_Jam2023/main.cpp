@@ -73,6 +73,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			gamemain->Draw();
 
 			if (gamemain->GetClearFlg() == true) {
+				clear_count = gamemain->GetClearCount();
 				delete gamemain; 
 				GameState = GAME_STATE::GAME_RESULT; 
 				scene_change = false;
