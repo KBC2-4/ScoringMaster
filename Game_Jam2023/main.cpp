@@ -37,6 +37,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	bool scene_change = false;
 
+	short clear_count = 0;
+
 	enum class GAME_STATE
 	{
 		TITLE = 0,     //タイトル
@@ -66,33 +68,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 		case GAME_STATE::GAME_MAIN:
-			if (scene_change == false) { gamemain = new GameMain(); scene_change = true; }
+			if (scene_change == false) {
+				clear_count = gamemain->GetClearCount();
+				gamemain = new GameMain();
+				scene_change = true;
+			}
 			gamemain->Update();
 			gamemain->Draw();
 
 			if (gamemain->GetClearFlg() == true) {
-				delete gamemain; 
-				GameState = GAME_STATE::GAME_RESULT; 
+				delete gamemain;
+				GameState = GAME_STATE::GAME_RESULT;
 				scene_change = false;
 			}
 			break;
 
 		case GAME_STATE::GAME_RESULT:
-			if (scene_change == false) { result = new Result(gamemain->GetClearCount()); scene_change = true; }
-			
+			if (scene_change == false) { result = new Result(clear_count); scene_change = true; }
+
 			result->Update();
 			result->Draw();
-			
 
-			if(result->GetNextScene() == true){ 
-				delete result; 
-				GameState = GAME_STATE::TITLE; 
+
+			if (result->GetNextScene() == true) {
+				delete result;
+				GameState = GAME_STATE::TITLE;
 				scene_change = false;
 			}
 			break;
 		}
-			
-		
+
+
 		PAD_INPUT::UpdateKey();	//パッドの入力状態の更新
 		//フレームレートの設定
 		dNextTime += static_cast<double>(1.0 / 60.0 * 1000.0);
