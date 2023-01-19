@@ -9,6 +9,7 @@ GameMain::GameMain() {
 	question_font = CreateFontToHandle("‚l‚r ‚oƒSƒVƒbƒN", 60, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 	time_font = CreateFontToHandle("ƒƒCƒŠƒI", 40, 10, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 	student_font = LoadFontDataToHandle("Resource/Fonts/Student.dft", 1);
+	student_dis_font = CreateFontToHandle(NULL, 40, 2, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	if ((background_image = LoadGraph("Resource/Images/gamemain.png")) == -1);
 	if ((paper_image = LoadGraph("Resource/Images/paper.png")) == -1);
@@ -43,6 +44,7 @@ GameMain::~GameMain() {
 	DeleteFontToHandle(time_font);
 	DeleteFontToHandle(question_font);
 	DeleteFontToHandle(student_font);
+	DeleteFontToHandle(student_dis_font);
 	DeleteGraph(background_image);
 	DeleteGraph(paper_image);
 	delete question;
@@ -143,14 +145,14 @@ void GameMain::Draw()
 		DrawExtendFormatString2ToHandle(canvas_x1 - 200 + GetDrawCenterX(question->GetQuestion(next_question_num).c_str(), question_font), canvas_y1 + 400, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, 0xF5A000, 0xEFBD00, question_font, "%s", question->GetQuestion(next_question_num).c_str());
 
 		//¶“k‚Ì‰ğ“š •`‰æ
-		DrawExtendStringToHandle(canvas_x1 + 80 + size_anim_count * 5, 570, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, "¶“k‚Ì“š‚¦", 0xFFFFFF, student_font, 0x000000);
+		DrawExtendStringToHandle(canvas_x1 + 80 + size_anim_count * 5, 570, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, "¶“k‚Ì“š‚¦", 0xFFFFFF, student_dis_font, 0x000000);
 		int char_num = GetDrawFormatStringWidthToHandle(student_font, question->GetAnswer(next_question_num, answer_correct).c_str());
-		for (int i = 0; i < char_num % 20; i++) {
-			DrawExtendStringToHandle(canvas_x1 + 300 + i * 20 + size_anim_count * 5, 580, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, "_", 0xFFFFFF, student_font, 0x000000);
+		for (int i = 0; i < char_num / 20; i++) {
+			DrawExtendStringToHandle(canvas_x1 + 300 + i * 20 + size_anim_count * 5, 580, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, "_", 0xFFFFFF, student_dis_font, 0x000000);
 			//DrawLineAA(canvas_x1 + 300, 640, canvas_x1 + 300 + i * 20, 580, 0x000000, size_anim_count * 0.01 + 0.8);
 		}
 
-		DrawExtendFormatString2ToHandle(canvas_x1 + 300 + size_anim_count * 5, 570, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, 0xFFFFFF, 0x00FFFF, student_font, "%6s", question->GetAnswer(next_question_num, answer_correct).c_str());
+		DrawExtendFormatString2ToHandle(canvas_x1 + 300 + size_anim_count * 5, 570, size_anim_count * 0.01 + 0.4, size_anim_count * 0.01 + 0.4, 0x00D64E, 0x00584E, student_font, "%6s", question->GetAnswer(next_question_num, answer_correct).c_str());
 	}
 
 	//³Œë•\¦‚ÌÀ•W

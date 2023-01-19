@@ -8,6 +8,7 @@ private:
 	//フォントハンドル
 	int title_font;
 	int time_font;
+	int student_dis_font;
 	int student_font;
 	int question_font;
 
