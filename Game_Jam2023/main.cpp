@@ -60,9 +60,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			title->Draw();
 
 			if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
-				delete title;
-				GameState = GAME_STATE::GAME_MAIN;
-				scene_change = false;
+
+				if (title->GetNextScene() == Title::NextScene::PLAY) {
+					delete title;
+					GameState = GAME_STATE::GAME_MAIN;
+					scene_change = false;
+				}
+				else if (title->GetNextScene() == Title::NextScene::END) { DxLib_End(); }
 			}
 			break;
 
