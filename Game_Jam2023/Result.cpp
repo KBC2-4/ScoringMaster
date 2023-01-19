@@ -1,10 +1,11 @@
 #include "Result.h"
 #include "PadInput.h"
 
-Result::Result() {
+Result::Result(short clear_count) {
 	//ç≈èâÇ…é¿çsÇ≥ÇÍÇÈä÷êî
 	title_font = CreateFontToHandle("ÉÅÉCÉäÉI", 120, 1);
 	nextscene = false;
+	this->clear_count = clear_count;
 }
 
 Result::~Result() {
@@ -22,5 +23,5 @@ void Result::Update()
 void Result::Draw()
 {
 	DrawBox(300, 200, 1000, 500, 0xFFFFFF, FALSE);
-	DrawStringToHandle(400, 300, "ÅZñ‚ê≥â", 0xFFFFFF, title_font);
+	DrawFormatString2ToHandle(400, 300, 0xFFFFFF, 0x000000, title_font, "%2dñ‚ê≥â");
 }
