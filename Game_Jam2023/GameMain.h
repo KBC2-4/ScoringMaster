@@ -70,8 +70,14 @@ public:
 	/// </summary>
 	/// <param name="end">開始時(右から左にスライド)はfalse, 終了時はtrue</param>
 	void slide_animation(bool end);
-
+	/// <summary>
+	/// クリアフラグのGetter
+	/// </summary>
 	bool GetClearFlg(void) const { return clear_flg; }
+	/// <summary>
+	/// 正解した問題数のGetter
+	/// </summary>
+	short GetClearCount(void) const { return clear_count; }
 	/// <summary>
 	/// 文字の描画するX座標が中心になるX座標を取得する。
 	/// </summary>
