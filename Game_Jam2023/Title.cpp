@@ -6,12 +6,12 @@ Title::Title() {
 
 	{
 		//タイトル画像の読込
-		if ((titleimg = LoadGraph("str_image.jpg")) == -1);
+		if ((titleimg = LoadGraph("Resource/Images/title.png")) == -1);
 
 	}
 	
 	title_font = CreateFontToHandle("メイリオ", 120, 1);
-	btitle_font = CreateFontToHandle("NULL", 40, 20);
+	btitle_font = CreateFontToHandle("メイリオ", 40, 20,DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	input_margin = 0;
 }
@@ -42,12 +42,17 @@ void Title::Draw()
 
 	DrawGraph(0, 0, titleimg, FALSE);
 
-	DrawStringToHandle(400, 100, "タイトル", 0x000000, title_font);
-	DrawStringToHandle(400, 500, "スタート", 0x0000FF, btitle_font);
-	DrawStringToHandle(400, 550, "終了", 0x0000FF, btitle_font);
-	
+	if (menunumber == 0) 
+		DrawStringToHandle(200, 500, "スタート", 0xFF0000, btitle_font);
+	else {
+		DrawStringToHandle(200, 500, "スタート", 0x0000FF, btitle_font);
+	}
+	if (menunumber == 1)
+		DrawStringToHandle(200, 600, "終了", 0xFF0000, btitle_font);
+	else {
+		DrawStringToHandle(200, 600, "終了", 0x0000FF, btitle_font);
+	}
 
-	menu = menunumber * 52;
-	DrawTriangle(350, 500 + menu, 350, 540 + menu, 390, 520 + menu, GetColor(255, 0, 0), TRUE);
+	menu = menunumber * 100;
 	
 }

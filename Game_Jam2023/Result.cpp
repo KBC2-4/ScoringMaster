@@ -21,5 +21,6 @@ void Result::Update()
 
 void Result::Draw()
 {
-	
+	DrawBox(300, 200, 1000, 500, 0xFFFFFF, FALSE);
+	DrawStringToHandle(400, 300, "ÅZñ‚ê≥â", 0xFFFFFF, title_font);
 }

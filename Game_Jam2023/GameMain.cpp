@@ -25,7 +25,7 @@ GameMain::GameMain() {
 	addtime_anim_count = -1;
 
 	next_question = false;
-	next_question_num = 6;
+	next_question_num = GetRand(QUESTION_NUM - 1);
 	question_num.push_back(next_question_num);
 
 	clear_count = 0;
