@@ -193,12 +193,12 @@ void GameMain::Draw()
 			DrawLineAA(canvas_x1 - 200, canvas_y1 - 200, canvas_x1 + 200, canvas_y1 + 200, 0x4171bb, 50.0F);
 			DrawLineAA(canvas_x1 + 200, canvas_y1 - 200, canvas_x1 - 200, canvas_y1 + 200, 0x4171bb, 50.0F);
 
-			DrawStringToHandle(1000, 80, "- 5.000", 0xFFFFFF,time_font);
+			DrawStringToHandle(1000, 90, "- 5.000", 0xFF0000,time_font);
 		}
 		break;
 	case GameMain::Answer::correct:
 		DrawCircleAA(x, y, 200, 30, 0xd2672f, FALSE, 50.0F);
-		DrawStringToHandle(1000, 80, "+ 1.000", 0xFFFFFF,time_font);
+		DrawStringToHandle(1000, 90, "+ 1.000", 0xFFFF00,time_font);
 		break;
 	default:
 		break;
@@ -207,7 +207,7 @@ void GameMain::Draw()
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	{//HUD
-		DrawFormatString2ToHandle(1000, 50, 0xFF0000, 0xFFFFFF, time_font, "%5d.%.3d", -time_limit / 1000, -time_limit % 1000);
+		DrawFormatString2ToHandle(1000, 50, 0x4E75ED, 0xFFFFFF, time_font, "%5d.%.3d", -time_limit / 1000, -time_limit % 1000);
 		DrawFormatString2ToHandle(50, 50, 0xFF0000, 0xFFFFFF, time_font, "ê≥âêîÅF%2d", clear_count);
 		DrawStringToHandle(600 + 150, 655, "Å~", 0xFFFFFF, question_font, 0x000000);
 		DrawCircleAA(600 + 123, 685, 30, 20, 0x5AFF19, 1);
