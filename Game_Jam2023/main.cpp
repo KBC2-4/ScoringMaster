@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	title = nullptr;
 	gamemain = nullptr;
-	result = nullptr();
+	result = nullptr;
 
 	bool scene_change = false;
 
