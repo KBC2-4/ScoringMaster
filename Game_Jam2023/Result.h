@@ -5,6 +5,7 @@ private:
 	//ƒNƒ‰ƒX“à‚Åg‚¤•Ï”
 	int title_font;
 	int bottun_font;
+	int rank_font;
 	
 	bool nextscene;
 	short clear_count;

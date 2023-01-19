@@ -7,6 +7,7 @@ Title::Title() {
 	{
 		select_se = LoadSoundMem("Resource/Sounds/select.mp3");
 		enter_se = LoadSoundMem("Resource/Sounds/enter.mp3");
+		background_music = LoadSoundMem("Resource/Sounds/bgm.mp3");
 
 		//タイトル画像の読込
 		if ((titleimg = LoadGraph("Resource/Images/title.png")) == -1);
@@ -17,11 +18,18 @@ Title::Title() {
 	btitle_font = CreateFontToHandle("メイリオ", 40, 20,DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	input_margin = 0;
+
+	PlaySoundMem(background_music, DX_PLAYTYPE_LOOP, TRUE);
 }
 
 Title::~Title() {
 	DeleteFontToHandle(title_font);
 	DeleteFontToHandle(btitle_font);
+	DeleteGraph(titleimg);
+	DeleteSoundMem(enter_se);
+	DeleteSoundMem(select_se);
+	StopSoundMem(background_music);
+	DeleteSoundMem(background_music);
 }
 
 void Title::Update()
