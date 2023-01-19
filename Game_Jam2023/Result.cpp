@@ -4,6 +4,8 @@
 Result::Result(short clear_count) {
 	//最初に実行される関数
 
+	enter_se = LoadSoundMem("Resource/Sounds/select.mp3");
+	
 	title_font = CreateFontToHandle("メイリオ", 120, 1);
 	bottun_font = CreateFontToHandle("メイリオ", 60, 1);
 	rank_font = CreateFontToHandle("メイリオ", 60, 10);
@@ -40,6 +42,7 @@ Result::~Result() {
 void Result::Update()
 {
 	if (PAD_INPUT::GetNowKey() == XINPUT_BUTTON_B && PAD_INPUT::GetPadState() == PAD_STATE::ON) {
+		PlaySoundMem(enter_se, DX_PLAYTYPE_BACK, TRUE);
 		nextscene = true;
 	}
 }
