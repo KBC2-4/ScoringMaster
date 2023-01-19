@@ -7,12 +7,22 @@ private:
 	int bottun_font;
 	
 	bool nextscene;
-	
+	short clear_count;
+
+	enum class Rank {
+		S,
+		A,
+		B,
+		C,
+		D,
+		E
+	};
+	Rank rank;
 
 
 public:
 	//ŠÖ”‚ğ‚±‚±‚ÅéŒ¾‚·‚é
-	Result();
+	Result(short clear_count = 0);
 	~Result();
 	void Update();
 	void Draw();

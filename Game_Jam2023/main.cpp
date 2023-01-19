@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	title = nullptr;
 	gamemain = nullptr;
-	result = nullptr();
+	result = nullptr;
 
 	bool scene_change = false;
 
@@ -78,7 +78,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			break;
 
 		case GAME_STATE::GAME_RESULT:
-			if (scene_change == false) { result = new Result(); scene_change = true; }
+			if (scene_change == false) { result = new Result(gamemain->GetClearCount()); scene_change = true; }
 			
 			result->Update();
 			result->Draw();
