@@ -1,5 +1,6 @@
 #pragma once
 #include "question.h"
+#include <vector>
 
 class GameMain
 {
@@ -10,7 +11,9 @@ private:
 	int student_font;
 	int question_font;
 
+	//イメージハンドル
 	int background_image;
+	int paper_image;
 
 	//ゲームクリア時のフラグ
 	bool clear_flg;
@@ -21,18 +24,41 @@ private:
 	//アニメーション用カウント
 	int anim_count;
 	int size_anim_count;
+	int answer_anim_count;
+	int addtime_anim_count;
 
 	//次の問題へ移行するフラグ
 	bool next_question;
 
-	//問題番号
-	short question_num;
+	//次に出題する問題番号
+	short next_question_num;
+
+	//出題した問題番号
+	std::vector<short> question_num;
+
+	//問題のカウント
+	short question_count;
+
 	//生徒の解答の正誤
 	bool answer_correct;
+
+	//正解した問題数
+	short clear_count;
+
+	enum class Answer {
+		unanswered, //未回答
+		wrong,		//不正解
+		correct,	//正解
+	};
+
+	Answer answer;
 
 
 	//オブジェクト変数
 	Question* question;
+
+	//デバッグ 
+	int count;
 
 public:
 	GameMain();
@@ -44,8 +70,14 @@ public:
 	/// </summary>
 	/// <param name="end">開始時(右から左にスライド)はfalse, 終了時はtrue</param>
 	void slide_animation(bool end);
-
+	/// <summary>
+	/// クリアフラグのGetter
+	/// </summary>
 	bool GetClearFlg(void) const { return clear_flg; }
+	/// <summary>
+	/// 正解した問題数のGetter
+	/// </summary>
+	short GetClearCount(void) const { return clear_count; }
 	/// <summary>
 	/// 文字の描画するX座標が中心になるX座標を取得する。
 	/// </summary>
