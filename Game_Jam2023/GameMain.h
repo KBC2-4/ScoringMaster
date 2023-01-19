@@ -64,7 +64,7 @@ private:
 	Question* question;
 
 	//デバッグ 
-	int count;
+	//int count;
 
 public:
 	GameMain();
