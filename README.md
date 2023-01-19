@@ -18,6 +18,7 @@
 ## ライセンス  
 
 ### 音声
+DOVA-SYNDROME／Hupple 
 DOVA-SYNDROME／マニーラ
 
 ### 画像
