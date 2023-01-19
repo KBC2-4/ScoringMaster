@@ -6,6 +6,10 @@ private:
 	int title_font;
 	int bottun_font;
 	int rank_font;
+	int gcrown_img;
+	int scrown_img;
+	int bcrown_img;
+	int background_image;
 	
 	bool nextscene;
 	short clear_count;
