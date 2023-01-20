@@ -5,6 +5,8 @@ private:
 //ƒNƒ‰ƒX“à‚Åg‚¤•Ï”
 	int title_font;
 	int btitle_font;
+	int guid_font;
+
 	int menu;
 	int menunumber;
 	int titleimg;

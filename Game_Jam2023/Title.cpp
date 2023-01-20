@@ -16,6 +16,7 @@ Title::Title() {
 	
 	title_font = CreateFontToHandle("ÉÅÉCÉäÉI", 120, 1);
 	btitle_font = CreateFontToHandle("ÉÅÉCÉäÉI", 40, 20,DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
+	guid_font = CreateFontToHandle("ÇlÇr ÇoÉSÉVÉbÉN", 40, 1, DX_FONTTYPE_ANTIALIASING_EDGE_4X4);
 
 	input_margin = 0;
 	menunumber = 0;
@@ -26,6 +27,7 @@ Title::Title() {
 Title::~Title() {
 	DeleteFontToHandle(title_font);
 	DeleteFontToHandle(btitle_font);
+	DeleteFontToHandle(guid_font);
 	DeleteGraph(titleimg);
 	DeleteSoundMem(enter_se);
 	DeleteSoundMem(select_se);
@@ -71,6 +73,26 @@ void Title::Draw()
 	else {
 		DrawStringToHandle(200, 600, "èIóπ", 0x0000FF, btitle_font);
 	}
+
+	//DrawStringToHandle(600 + 150, 655, "Å~", 0xFFFFFF, question_font, 0x000000);
+	//DrawCircleAA(600 + 123, 685, 30, 20, 0x5AFF19, 1);
+	//DrawStringToHandle(600 + 103, 654, "A", 0x16F002, question_font, 0x000000);
+
+	const int joystick_x = 340;
+	const int joystick_y = 670;
+
+	DrawOvalAA(joystick_x, joystick_y + 6, 18, 10, 20, 0x000000, TRUE);
+	DrawBoxAA(joystick_x - 5, joystick_y, joystick_x + 7, joystick_y + 23, 0x000000, TRUE);
+	DrawOvalAA(joystick_x, joystick_y + 23, 22, 8, 20, 0x000000, TRUE);
+	DrawString(joystick_x - 2, joystick_y - 2, "L", 0xFFFFFF);
+	DrawStringToHandle(joystick_x + 30, 668, "à⁄ìÆ", 0xFFFFFF, guid_font, 0x000000);
+
+	const int b_x = 1000;
+	const int b_y = 685;
+
+	DrawStringToHandle(b_x - 180, b_y  - 20, "åàíË", 0xFFFFFF, guid_font, 0x000000);
+	DrawCircleAA(b_x - 199, b_y, 20, 20, 0xff0000, 1);
+	DrawStringToHandle(b_x - 210, b_y - 21, "B", 0xEB7415, guid_font, 0x000000);
 
 	menu = menunumber * 100;
 	
