@@ -16,6 +16,8 @@ private:
 	bool nextscene;
 	short clear_count;
 
+	float anim_timer;
+
 	enum class Rank {
 		S,
 		A,
