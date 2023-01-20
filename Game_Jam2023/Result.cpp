@@ -93,15 +93,12 @@ void Result::Draw()
 		break;
 	case Result::Rank::C:
 		DrawStringToHandle(rank_x, rank_y, "C", 0x00FF00, rank_font);
-		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	case Result::Rank::D:
 		DrawStringToHandle(rank_x, rank_y, "D", 0xff0000, rank_font);
-		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	case Result::Rank::E:
 		DrawStringToHandle(rank_x, rank_y, "E", 0xC0C0C0, rank_font);
-		DrawGraph(490, 40, gcrown_img, TRUE);
 		break;
 	default:
 		break;
